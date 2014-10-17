@@ -1,17 +1,29 @@
-#include "defs.h"
+#include "main.h"
 #include "processor.h"
+#include <task.h>
+
+/*--------------------------------------------------------------------------*/
 
 void SystemClock_Config(void);
+void task_exemplo( void* lpParam );
 
+/*--------------------------------------------------------------------------*/
 
 int main( void )
 {
-  uint32_t s;
+  uint32_t dwRet;
   
   SystemInit();
   SystemClock_Config();
+	
+	dwRet = xTaskCreate( task_exemplo, "teste", 120, NULL, 1, NULL );
+
+	vTaskStartScheduler();
+	for(;;);
 }
 
+
+/*--------------------------------------------------------------------------*/
 
 void SystemClock_Config(void)
 {
@@ -49,5 +61,11 @@ void SystemClock_Config(void)
 
 }
 
+/*--------------------------------------------------------------------------*/
 
+void task_exemplo( void* lpParam )
+{
+	vTaskDelay( 1000 );
+}
 
+/*--------------------------------------------------------------------------*/
