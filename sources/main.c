@@ -1,21 +1,49 @@
 #include "defs.h"
 #include "processor.h"
+#include "main.h"
+#include <task.h>
+
+/*--------------------------------------------------------------------------*/
 
 void SystemClock_Config(void);
 
+/*--------------------------------------------------------------------------*/
+
+void TesteTask( void* lpParam );
+
+/*--------------------------------------------------------------------------*/
 
 int main( void )
 {
-  uint32_t s;
   
+  BaseType_t bRet;
+  TaskHandle_t handle;
   SystemInit();
   SystemClock_Config();
+
+  bRet = xTaskCreate( TesteTask , 
+                      "teste"   ,
+                      128       ,
+                      NULL      ,
+                      4         ,
+                      &handle   );
+  
+                      
+  
+  
+  /* start the scheduler */
+  vTaskStartScheduler();
+
+  for ( ;; ) 
+  {
+      /*! se chegar aqui, tem boi na linha */
+  }  
 }
 
+/*--------------------------------------------------------------------------*/
 
 void SystemClock_Config(void)
 {
-
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct;
   RCC_OscInitTypeDef RCC_OscInitStruct;
@@ -47,7 +75,19 @@ void SystemClock_Config(void)
   PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
   HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct);
 
+  return;
 }
 
+/*--------------------------------------------------------------------------*/
 
+void TesteTask( void* lpParam )
+{
+  static DWORD dwCounter = 0;
+  
+  dwCounter++;
+  
+  return;
+}
+
+/*--------------------------------------------------------------------------*/
 

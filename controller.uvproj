@@ -408,6 +408,11 @@
               <FileType>1</FileType>
               <FilePath>.\sources\main.c</FilePath>
             </File>
+            <File>
+              <FileName>assert.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\sources\assert.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -472,6 +477,11 @@
               <FileName>processor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\header\processor.h</FilePath>
+            </File>
+            <File>
+              <FileName>main.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\header\main.h</FilePath>
             </File>
           </Files>
         </Group>

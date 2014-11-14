@@ -9,8 +9,9 @@
 
 #include <stdint.h>
 
-typedef unsigned char BYTE;
-typedef unsigned short int WORD;
-typedef unsigned int  DWORD;
+typedef unsigned char       BYTE;
+typedef unsigned short int  WORD;
+typedef unsigned int        DWORD;
+typedef void*               HANDLE;
 
 #endif
