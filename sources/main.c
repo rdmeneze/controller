@@ -1,13 +1,18 @@
-#include "defs.h"
-#include "processor.h"
 #include "main.h"
+#include "processor.h"
+<<<<<<< HEAD
+#include "main.h"
+=======
+>>>>>>> 338e9508428d85d276d4927891d039fe053e03c3
 #include <task.h>
 
 /*--------------------------------------------------------------------------*/
 
 void SystemClock_Config(void);
+void task_exemplo( void* lpParam );
 
 /*--------------------------------------------------------------------------*/
+<<<<<<< HEAD
 
 void TesteTask( void* lpParam );
 
@@ -15,11 +20,18 @@ void TesteTask( void* lpParam );
 
 int main( void )
 {
+=======
+
+int main( void )
+{
+  uint32_t dwRet;
+>>>>>>> 338e9508428d85d276d4927891d039fe053e03c3
   
   BaseType_t bRet;
   TaskHandle_t handle;
   SystemInit();
   SystemClock_Config();
+<<<<<<< HEAD
 
   bRet = xTaskCreate( TesteTask , 
                       "teste"   ,
@@ -38,7 +50,16 @@ int main( void )
   {
       /*! se chegar aqui, tem boi na linha */
   }  
+=======
+	
+	dwRet = xTaskCreate( task_exemplo, "teste", 120, NULL, 1, NULL );
+
+	vTaskStartScheduler();
+	for(;;);
+>>>>>>> 338e9508428d85d276d4927891d039fe053e03c3
 }
+
+/*--------------------------------------------------------------------------*/
 
 /*--------------------------------------------------------------------------*/
 
@@ -79,6 +100,7 @@ void SystemClock_Config(void)
 }
 
 /*--------------------------------------------------------------------------*/
+<<<<<<< HEAD
 
 void TesteTask( void* lpParam )
 {
@@ -90,4 +112,12 @@ void TesteTask( void* lpParam )
 }
 
 /*--------------------------------------------------------------------------*/
+=======
 
+void task_exemplo( void* lpParam )
+{
+	vTaskDelay( 1000 );
+}
+>>>>>>> 338e9508428d85d276d4927891d039fe053e03c3
+
+/*--------------------------------------------------------------------------*/
